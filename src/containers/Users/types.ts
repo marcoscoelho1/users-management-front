@@ -6,4 +6,5 @@ export interface User {
   phone: string
   typeSubscription: string
   citizenCode: string
+  [key: string]: string | number
 }

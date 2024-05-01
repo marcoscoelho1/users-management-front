@@ -19,7 +19,7 @@ const Users = (): JSX.Element => {
         user={selectedUser}
         handleShowEditUserModal={handleShowEditUserModal}
       />
-      {selectedUser && (
+      {isUserModalOpen && selectedUser && (
         <UserEditModal
           user={selectedUser}
           isOpen={isUserModalOpen}
