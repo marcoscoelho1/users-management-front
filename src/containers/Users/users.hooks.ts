@@ -20,7 +20,7 @@ export const useUsers = () => {
     return users
   }, [])
 
-  const handleOpenEditUserModal = useCallback(() => {
+  const handleShowEditUserModal = useCallback(() => {
     setIsUserModalOpen(!isUserModalOpen)
   }, [isUserModalOpen])
 
@@ -29,6 +29,6 @@ export const useUsers = () => {
     selectedUser,
     setSelectedUser,
     isUserModalOpen,
-    handleOpenEditUserModal,
+    handleShowEditUserModal,
   }
 }

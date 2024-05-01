@@ -9,7 +9,7 @@ const Users = (): JSX.Element => {
     setSelectedUser,
     selectedUser,
     isUserModalOpen,
-    handleOpenEditUserModal,
+    handleShowEditUserModal,
   } = useUsers()
 
   return (
@@ -17,13 +17,13 @@ const Users = (): JSX.Element => {
       <UsersList users={generatedUsers} handleSelectUser={setSelectedUser} />
       <UserBox
         user={selectedUser}
-        handleOpenEditUserModal={handleOpenEditUserModal}
+        handleShowEditUserModal={handleShowEditUserModal}
       />
       {selectedUser && (
         <UserEditModal
           user={selectedUser}
           isOpen={isUserModalOpen}
-          onClose={handleOpenEditUserModal}
+          onClose={handleShowEditUserModal}
         />
       )}
     </div>

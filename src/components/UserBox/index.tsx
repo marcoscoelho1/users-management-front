@@ -14,7 +14,7 @@ const UserInfo = ({ Icon, text }: UserInfoProps): ReactNode => (
   </div>
 )
 
-const UserBox = ({ user, handleOpenEditUserModal }: Props): JSX.Element => {
+const UserBox = ({ user, handleShowEditUserModal }: Props): JSX.Element => {
   if (!user) {
     return (
       <div className="sticky top-0 w-1/4">
@@ -44,7 +44,7 @@ const UserBox = ({ user, handleOpenEditUserModal }: Props): JSX.Element => {
         <UserInfo Icon={SquareUser} text={user.citizenCode} />
       </div>
       <button
-        onClick={() => handleOpenEditUserModal()}
+        onClick={() => handleShowEditUserModal()}
         className="flex justify-center align-center p-2 mt-2 border-solid border-[1px] rounded w-full gap-2 hover:bg-gray-700/50"
       >
         <FilePenLine />
