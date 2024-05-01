@@ -1,0 +1,17 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: #9ca3af;
+}
+
+.paginationButton--active {
+  color: rgb(255 255 255);
+}
+
+.paginationButton:hover {
+  transition: 0.3s all;
+  color: rgb(255 255 255 / 0.8);
+}

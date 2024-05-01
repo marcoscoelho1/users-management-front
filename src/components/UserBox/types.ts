@@ -1,12 +1,6 @@
-export interface User {
-  id: number
-  avatar: string
-  name: string
-  email: string
-  phone: string
-  typeSubscription: string
-}
+import { User } from '@containers/Users/types'
 
 export interface UserBoxProps {
   user?: User | null
+  handleOpenEditUserModal: () => void
 }

@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-gray-900 p-5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+div {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #6b7280;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #374151;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background-color: #4b5563;
+  }
+}
+
+@layer components {
+  .SharedModal {
+    @apply bg-gray-800;
+  }
+
+  .SharedOverlay {
+    @apply bg-black/70;
+  }
+}

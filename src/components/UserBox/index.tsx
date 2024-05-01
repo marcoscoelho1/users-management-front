@@ -1,12 +1,32 @@
+import { ElementType, ReactNode } from 'react'
 import { UserBoxProps as Props } from './types'
+import { Mail, Phone, SquareUser, FilePenLine } from 'lucide-react'
 
-const UserBox = ({ user }: Props): JSX.Element => {
+interface UserInfoProps {
+  Icon: ElementType
+  text: string
+}
+
+const UserInfo = ({ Icon, text }: UserInfoProps): ReactNode => (
+  <div className="flex gap-2 text-sm">
+    <Icon />
+    {text}
+  </div>
+)
+
+const UserBox = ({ user, handleOpenEditUserModal }: Props): JSX.Element => {
   if (!user) {
-    return <div>No data</div>
+    return (
+      <div className="sticky top-0 w-1/4">
+        <div className="flex flex-col gap-2 justify-center items-center">
+          No data
+        </div>
+      </div>
+    )
   }
 
   return (
-    <div className="w-1/4">
+    <div className="sticky top-0 w-1/4 min-w-[242px]">
       <div className="flex flex-col gap-2 justify-center items-center">
         <div className="w-[120px] h-[120px] rounded-full overflow-hidden">
           <img
@@ -18,7 +38,18 @@ const UserBox = ({ user }: Props): JSX.Element => {
         <p>{user.name}</p>
         <p>{user.typeSubscription}</p>
       </div>
-      <div></div>
+      <div className="flex flex-col gap-2">
+        <UserInfo Icon={Mail} text={user.email} />
+        <UserInfo Icon={Phone} text={user.phone} />
+        <UserInfo Icon={SquareUser} text={user.citizenCode} />
+      </div>
+      <button
+        onClick={() => handleOpenEditUserModal()}
+        className="flex justify-center align-center p-2 mt-2 border-solid border-[1px] rounded w-full gap-2 hover:bg-gray-700/50"
+      >
+        <FilePenLine />
+        Editar
+      </button>
     </div>
   )
 }

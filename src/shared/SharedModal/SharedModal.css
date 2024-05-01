@@ -1,0 +1,22 @@
+.SharedModal {
+  inset: 40px;
+  position: absolute;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.SharedModalOverlay {
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
