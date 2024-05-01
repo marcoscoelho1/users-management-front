@@ -15,7 +15,9 @@
       "@containers": ["src/containers"],
       "@containers/*": ["src/containers/*"],
       "@shared": ["src/shared"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@services": ["src/services"],
+      "@services/*": ["src/services/*"]
     }
   },
   "include": ["vite.config.ts"]

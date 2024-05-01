@@ -16,29 +16,19 @@ import {
 import { TextInput } from '@shared/TextInput'
 
 const UserEditModal = ({ isOpen, onClose, user }: Props): JSX.Element => {
-  // console.log('userEditModal', user)
-
-  // const [userForm, setUserForm] = useState(user)
-
-  // console.log('userForm', userForm)
-
-  // const handleChange = (fieldName: string, value: string) => {
-  //   if (!userForm) return
-
-  //   const userChange = { ...userForm }
-
-  //   userChange[fieldName] = value
-
-  //   setUserForm(userChange)
-  // }
-
-  const { userForm, handleChange } = useUserEditModal(user)
+  const { userForm, handleChange, handleSaveUser } = useUserEditModal(user)
 
   if (!userForm) return <></>
 
   return (
     <SharedModal isOpen={isOpen} onRequestClose={onClose}>
-      <form className="flex flex-col gap-2 py-[16px] min-w-[350px]">
+      <form
+        className="flex flex-col gap-2 py-[16px] min-w-[350px]"
+        onSubmit={(event) => {
+          event.preventDefault()
+          handleSaveUser(userForm)
+        }}
+      >
         <Avatar src={userForm.avatar} isEditable={true} />
 
         <TextInput.Container>
@@ -67,7 +57,7 @@ const UserEditModal = ({ isOpen, onClose, user }: Props): JSX.Element => {
           <TextInput.Label text="CPF" Icon={UserSquare} />
           <TextInput.Input value={userForm.citizenCode} />
         </TextInput.Container>
-        <SharedButton onClick={() => {}}>
+        <SharedButton type="submit">
           <Save />
           Salvar
         </SharedButton>

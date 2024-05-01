@@ -1,12 +1,13 @@
 import { User } from '@containers/Users/types'
 import { useState } from 'react'
+import usePutUsers from '@services/usePutUsers'
 
 const useUserEditModal = (user: User) => {
   const [userForm, setUserForm] = useState(user)
 
-  const handleChange = (fieldName: string, value: string) => {
-    console.log('chegando aqui', value)
+  const { mutate } = usePutUsers()
 
+  const handleChange = (fieldName: string, value: string) => {
     const userChange = { ...userForm }
 
     userChange[fieldName] = value
@@ -14,7 +15,11 @@ const useUserEditModal = (user: User) => {
     setUserForm(userChange)
   }
 
-  return { handleChange, userForm }
+  const handleSaveUser = (user: User) => {
+    mutate(user)
+  }
+
+  return { handleChange, userForm, handleSaveUser }
 }
 
 export default useUserEditModal
