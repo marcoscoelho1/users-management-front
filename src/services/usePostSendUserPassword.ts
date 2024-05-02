@@ -6,22 +6,20 @@ import { User } from '@containers/Users/types'
 
 interface PutUsersRequest {
   message: string
-  user: User
 }
 
-const usePutUsers = () => {
+const usePostSendUserPassword = () => {
   const [data, setData] = useState<PutUsersRequest | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
   const mutate = (user: User) => {
     const mock = new MockAdapter(axios)
 
-    mock.onPut('/users').reply(200, {
-      user: user,
-      message: 'Salvo com sucesso!',
+    mock.onPost('/users/send_password').reply(200, {
+      message: 'Senha enviada com sucesso!',
     })
     setIsLoading(true)
-    axios.put('/users').then((response): void => {
+    axios.post('/users/send_password', user).then((response): void => {
       setData(response.data), setIsLoading(false)
     })
   }
@@ -29,4 +27,4 @@ const usePutUsers = () => {
   return { data, isLoading, mutate }
 }
 
-export default usePutUsers
+export default usePostSendUserPassword

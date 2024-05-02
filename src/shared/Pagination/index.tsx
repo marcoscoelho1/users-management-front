@@ -6,17 +6,15 @@ import './pagination.css'
 
 const Pagination = (props: Props): JSX.Element => {
   return (
-    <div>
-      <ReactPaginate
-        className="pagination"
-        breakLabel="..."
-        nextLabel={<ChevronRight />}
-        previousLabel={<ChevronLeft />}
-        pageClassName="paginationButton"
-        activeClassName="paginationButton--active"
-        {...props}
-      />
-    </div>
+    <ReactPaginate
+      className="pagination"
+      breakLabel="..."
+      nextLabel={<ChevronRight />}
+      previousLabel={<ChevronLeft />}
+      pageClassName="paginationButton"
+      activeClassName="paginationButton--active"
+      {...props}
+    />
   )
 }
 

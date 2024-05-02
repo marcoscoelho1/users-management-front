@@ -10,17 +10,19 @@ const UsersList = ({ users, handleSelectUser }: Props): JSX.Element => {
 
   const { calcPagination, currentPage, setCurrentPage, pageCount } =
     useUsersList(users.length, 50)
-  const [start, end] = calcPagination[currentPage] || [0, 0]
+  const [start, end] = calcPagination[currentPage] || [0, 50]
 
   return (
-    <div className="w-3/4">
-      <table>
+    <div className="w-3/4 min-h-[600px]">
+      <table className="min-w-[692px]">
         <thead className="bg-gray-700 h-[60px]">
-          <th className="text-left px-4">id</th>
-          <th className="text-left px-4">Nome</th>
-          <th className="text-left px-4">email</th>
-          <th className="text-left px-4">telefone</th>
-          <th className="text-left px-4">Assinatura</th>
+          <tr>
+            <th className="text-left px-4">id</th>
+            <th className="text-left px-4">Nome</th>
+            <th className="text-left px-4">email</th>
+            <th className="text-left px-4">telefone</th>
+            <th className="text-left px-4">Assinatura</th>
+          </tr>
         </thead>
         <tbody>
           {users.slice(start, end).map(

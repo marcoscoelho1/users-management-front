@@ -16,7 +16,8 @@ import {
 import { TextInput } from '@shared/TextInput'
 
 const UserEditModal = ({ isOpen, onClose, user }: Props): JSX.Element => {
-  const { userForm, handleChange, handleSaveUser } = useUserEditModal(user)
+  const { userForm, handleChange, handleSaveUser, handleSendPassword } =
+    useUserEditModal(user)
 
   if (!userForm) return <></>
 
@@ -51,18 +52,34 @@ const UserEditModal = ({ isOpen, onClose, user }: Props): JSX.Element => {
         </TextInput.Container>
         <TextInput.Container>
           <TextInput.Label text="Telefone" Icon={Phone} />
-          <TextInput.Input value={userForm.phone} />
+          <TextInput.Input
+            value={userForm.phone}
+            onChange={(event) =>
+              handleChange('phone', event.currentTarget.value)
+            }
+          />
         </TextInput.Container>
         <TextInput.Container>
           <TextInput.Label text="CPF" Icon={UserSquare} />
-          <TextInput.Input value={userForm.citizenCode} />
+          <TextInput.Input
+            value={userForm.citizenCode}
+            onChange={(event) =>
+              handleChange('citizenCode', event.currentTarget.value)
+            }
+          />
         </TextInput.Container>
         <SharedButton type="submit">
           <Save />
           Salvar
         </SharedButton>
 
-        <SharedButton onClick={() => {}}>
+        <SharedButton
+          type="button"
+          onClick={(event) => {
+            event.preventDefault()
+            handleSendPassword()
+          }}
+        >
           <RectangleEllipsis />
           Reenviar Senha
         </SharedButton>
