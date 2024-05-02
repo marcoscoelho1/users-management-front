@@ -9,7 +9,7 @@ Para começar, siga estas etapas:
 1. **Clone o Repositório:**
 
    ```bash
-   git clone https://github.com/marcoscoelho1/service-governance-frontend.git
+   git clone https://github.com/marcoscoelho1/users-management-front.git
    cd users-management-front
    ```
 
